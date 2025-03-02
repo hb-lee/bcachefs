@@ -1985,7 +1985,7 @@ static int check_dir_i_size_notnested(struct btree_trans *trans, struct inode_wa
 
 	darray_for_each(w->inodes, i)
 		if (fsck_err_on(i->inode.bi_size != i->i_size,
-				trans, inode_dir_wrong_nlink,
+				trans, directory_size_mismatch,
 				"directory %llu:%u with wrong i_size: got %llu, should be %llu",
 				w->last_pos.inode, i->snapshot, i->inode.bi_size, i->i_size)) {
 			i->inode.bi_size = i->i_size;
